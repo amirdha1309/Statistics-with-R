@@ -1,0 +1,12 @@
+objects <- ls()
+
+cat("Objects in memory:\n")
+print(objects)
+
+for (obj in objects)
+{
+  cat("\nObject:", obj, "\n")
+  cat("Type:", typeof(get(obj)), "\n")
+  cat("Class:", class(get(obj)), "\n")
+  cat("Size:", object.size(get(obj)), "bytes\n")
+}
