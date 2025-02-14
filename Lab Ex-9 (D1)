@@ -1,0 +1,15 @@
+# Function to find factors of a number
+find_factors <- function(n) {
+  factors <- c()
+  for (i in 1:n) {
+    if (n %% i == 0) {
+      factors <- c(factors, i)
+    }
+  }
+  return(factors)
+}
+
+# Example usage
+n <- as.numeric(readline(prompt = "Enter a number: "))
+factors <- find_factors(n)
+cat("Factors of", n, ":", factors, "\n")
