@@ -1,0 +1,6 @@
+values <- 1:12
+dimensions <- c(3, 2, 2)
+
+array_3D <- array(values, dim = dimensions, 
+                  dimnames = list(c("A", "B", "C"), c("X", "Y"), c("First", "Second")))
+print(array_3D)
