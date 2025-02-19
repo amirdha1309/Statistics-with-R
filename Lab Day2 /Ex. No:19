@@ -1,0 +1,6 @@
+vec <- c(1, 2, 3)
+mat <- matrix(1:4, nrow = 2)
+fun <- function(x) x^2
+
+my_list <- list(Vector = vec, Matrix = mat, Function = fun)
+print(my_list)
