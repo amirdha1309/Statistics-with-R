@@ -1,0 +1,12 @@
+num_vector <- c(1.1, 2.2, 3.3)
+char_vector <- c("A", "B", "C")
+log_vector <- c(TRUE, FALSE, TRUE)
+
+print(num_vector)
+print(typeof(num_vector))
+
+print(char_vector)
+print(typeof(char_vector))
+
+print(log_vector)
+print(typeof(log_vector))
