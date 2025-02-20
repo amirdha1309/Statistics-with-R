@@ -1,0 +1,35 @@
+Task 2: Air Quality Data
+data("airquality")
+
+i. Compute mean temperature without built-in function
+mean_temp <- sum(airquality$Temp, na.rm = TRUE) / length(na.omit(airquality$Temp))
+print(mean_temp)
+
+ii. First five rows
+print(head(airquality, 5))
+
+iii. Extract all columns except Temp & Wind
+print(airquality[, !(names(airquality) %in% c("Temp", "Wind"))])
+
+iv. Coldest day
+coldest_day <- airquality[which.min(airquality$Temp), ]
+print(coldest_day)
+
+v. Summary statistics
+summary(airquality)
+
+vi. Melt airquality dataset
+melted_airquality <- melt(airquality)
+print(melted_airquality)
+
+vii. Melt with ID variables as Month and Day
+melted_airquality_id <- melt(airquality, id.vars = c("Month", "Day"))
+print(melted_airquality_id)
+
+viii. Cast molten dataset with respect to Month and Day
+cast_airquality <- dcast(melted_airquality_id, Month + Day ~ variable, mean, na.rm = TRUE)
+print(cast_airquality)
+
+ix. Monthly averages
+monthly_avg <- dcast(melted_airquality_id, Month ~ variable, mean, na.rm = TRUE)
+print(monthly_avg)
