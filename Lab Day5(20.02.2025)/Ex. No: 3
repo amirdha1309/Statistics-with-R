@@ -1,0 +1,23 @@
+Task 3:
+i. Handle Missing Values
+missing_values <- colSums(is.na(airquality))
+threshold <- 0.1 * nrow(airquality)
+
+for (col in names(missing_values)) {
+  if (missing_values[col] > 0) {
+    if (missing_values[col] < threshold) {
+      airquality <- airquality[!is.na(airquality[[col]]), ]
+    } else {
+      airquality[[col]][is.na(airquality[[col]])] <- mean(airquality[[col]], na.rm = TRUE)
+    }
+  }
+}
+
+
+ii. Linear Regression on Ozone and Solar.R
+model_lm <- lm(Ozone ~ Solar.R, data = airquality, na.action = na.omit)
+print(summary(model_lm))
+
+iii. Scatter plot with regression line
+plot(airquality$Solar.R, airquality$Ozone, xlab = "Solar.R", ylab = "Ozone")
+abline(model_lm, col = "red")
