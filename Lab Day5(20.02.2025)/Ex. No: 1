@@ -1,0 +1,27 @@
+Task 1: Logistic Regression with Iris Dataset
+set.seed(123)
+data(iris)
+train_index <- sample(1:nrow(iris), 0.8 * nrow(iris))
+train_data <- iris[train_index, ]
+test_data <- iris[-train_index, ]
+model <- glm(Species ~ Petal.Width + Petal.Length, data = train_data, family = binomial)
+prob_pred <- predict(model, test_data, type = "response")
+predicted_classes <- ifelse(prob_pred > 0.5, levels(iris$Species)[2], levels(iris$Species)[1])
+conf_matrix <- table(Predicted = predicted_classes, Actual = test_data$Species)
+print(conf_matrix)
+
+(i): Mean, Median, Mode
+values <- c(90, 50, 70, 80, 70, 60, 20, 30, 80, 90, 20)
+mean_val <- mean(values)
+median_val <- median(values)
+mode_val <- names(sort(table(values), decreasing=TRUE)[1])
+print(mean_val)
+print(median_val)
+print(mode_val)
+
+(ii): 2nd highest and 3rd lowest value
+sorted_values <- sort(values, decreasing = TRUE)
+second_highest <- sorted_values[2]
+third_lowest <- sort(values)[3]
+print(second_highest)
+print(third_lowest)
